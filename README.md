@@ -83,7 +83,7 @@ WindowGroup { … } // SwiftUI window
 
 
 
-## **RealityView Attachments****
+## **RealityView Attachments**
 
 - Attach SwiftUI views to an RealityKit Entity 
 
