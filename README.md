@@ -314,8 +314,10 @@ Custom Shader (Underwater Apple example project, Octopus.swift)
 ## **Useful Links / Documentation**
 
 
-Sample Code
+Apple Sample Projects WWDC 2021 - 2023
 https://developer.apple.com/sample-code/wwdc/2021/
+https://developer.apple.com/sample-code/wwdc/2022/
+https://developer.apple.com/sample-code/wwdc/2023/
 
 
 Checking whether your existing app is compatible with visionOS https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
