@@ -1,4 +1,4 @@
-# Introduction-to-VisionOS-and-Spatial-Computing
+# Introduction to VisionOS and Spatial Computing
 
 
 # Getting Started With VisionOS
@@ -311,8 +311,7 @@ Custom Shader (Underwater Apple example project, Octopus.swift)
 
 
 
-
-VisionOS Useful Links / Documentation
+## **Useful Links / Documentation**
 
 
 Sample Code
@@ -341,7 +340,6 @@ Understanding RealityKit’s modular architecture
 https://developer.apple.com/documentation/visionos/understanding-the-realitykit-modular-architecture
 
 
-
 ARKit Scene Reconstruction / Scene Collision
 https://developer.apple.com/documentation/visionos/incorporating-surroundings-in-an-immersive-experience
 
@@ -353,7 +351,9 @@ https://developer.apple.com/design/human-interface-guidelines/augmented-reality
 
 
 
-Current Vision Pro Simulator Limitations
+
+
+## **Current Vision Pro Simulator Limitations**
 
 - ARKitSession
     - PlaneDetectionProvider is not available on sim (Vision OS Beta 1.1 7/27/23)
