@@ -237,3 +237,126 @@ A description of how virtual content can be anchored to the real world.
         - Table
         - Seat
         - Any
+     
+
+
+
+
+
+
+Useful VisionOS Snippets
+
+
+Load and return a a specific entity from RealityComposerPro scene
+```
+// Load and return a a specific entity from RealityComposerPro scene
+
+@MainActor
+func loadFromRealityComposerPro(named entityName: String, fromSceneNamed sceneName: String) async -> Entity? {
+    var entity: Entity? = nil
+    do {
+        let scene = try await Entity.load(named: sceneName, in: …bundle…)
+        entity = scene.findEntity(named: entityName)
+    } catch {
+        print("Error loading \(entityName) from scene \(sceneName): \(error.localizedDescription)")
+    }
+    return entity
+}
+```
+
+
+Start ARKitSession Example
+```
+// Start ARKitSession Example
+let session = ARKitSession()
+let planeData = PlaneDetectionProvider(alignments: [.horizontal, .vertical])
+
+
+Task {
+    try await session.run([planeData])
+    
+    for await update in planeData.anchorUpdates {
+        // Skip planes that are windows.
+        if update.anchor.classification == .window { continue }
+        
+        switch update.event {
+        case .added, .updated:
+            updatePlane(update.anchor)
+        case .removed:
+            removePlane(update.anchor)
+        }
+    }
+}
+```
+
+
+Custom Shader (Underwater Apple example project, Octopus.swift)
+```
+// Custom Shader (Underwater Apple example project, Octopus.swift)
+ do {
+                let surfaceShader = CustomMaterial.SurfaceShader(
+                    named: "octopusSurface",
+                    in: MetalLibLoader.library
+                )
+                try octopusModel.modifyMaterials {
+                    var mat = try CustomMaterial(from: $0, surfaceShader: surfaceShader)
+                    mat.custom.texture = .init(mask)
+                    mat.emissiveColor.texture = .init(bc2)
+                    return mat
+                }
+            } catch {
+                assertionFailure("Failed to set a custom shader on the octopus \(error)")
+            }
+```
+
+
+
+
+VisionOS Useful Links / Documentation
+
+
+Sample Code
+https://developer.apple.com/sample-code/wwdc/2021/
+
+
+Checking whether your existing app is compatible with visionOS https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
+
+
+Bringing your ARKit app to visionOS
+https://developer.apple.com/documentation/visionos/bringing-your-arkit-app-to-visionos
+
+
+Explaining ECS / Entity Component System
+https://medium.com/macoclock/realitykit-911-entity-component-system-ecs-bfe0520e0e8e
+
+Implementing ECS in RealityKit
+https://developer.apple.com/documentation/realitykit/implementing-systems-for-entities-in-a-scene
+
+
+Augmented Reality - Apple webpage
+https://developer.apple.com/augmented-reality/
+
+
+Understanding RealityKit’s modular architecture
+https://developer.apple.com/documentation/visionos/understanding-the-realitykit-modular-architecture
+
+
+
+ARKit Scene Reconstruction / Scene Collision
+https://developer.apple.com/documentation/visionos/incorporating-surroundings-in-an-immersive-experience
+
+
+AR Design / UI UX 
+
+https://developer.apple.com/design/human-interface-guidelines/augmented-reality
+
+
+
+
+Current Vision Pro Simulator Limitations
+
+- ARKitSession
+    - PlaneDetectionProvider is not available on sim (Vision OS Beta 1.1 7/27/23)
+- SceneReconstructionProvider is not available on sim (Vision OS Beta 1.1 7/27/23)
+
+
