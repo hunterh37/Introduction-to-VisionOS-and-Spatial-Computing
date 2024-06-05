@@ -237,9 +237,15 @@ A description of how virtual content can be anchored to the real world.
         - Table
         - Seat
         - Any
+
+
+
      
 
+## **Reduce draw calls**
 
+Each model entity in your scene generates one draw call per material for noninstanced geometry. On the other hand, with instanced entities, RealityKit only generates a single draw call for each material used on the original instanced entity. As a result, using instanced entities can reduces the number of draw calls your app makes.
+Sharing textures between entities by using texture atlases, which are textures that contain images for multiple materials, also reduces your app’s draw calls, as can combining multiple models into a single entity with shared materials. When combining model entities, be careful not to make the combined entities too large; if the entities are too large, they won’t be culled during frustum culling, when objects that are completely off-camera are removed from the rendering process — resulting in no draw calls at all. If any part of the combined entity is visible on screen, every material on that entity generates a draw call, even materials that are completely off screen.
 
 
 
@@ -319,6 +325,10 @@ https://developer.apple.com/sample-code/wwdc/2021/
 https://developer.apple.com/sample-code/wwdc/2022/
 https://developer.apple.com/sample-code/wwdc/2023/
 
+VisionOS Sample Projects 2024
+https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos
+https://developer.apple.com/documentation/visionos/happybeam
+
 
 Checking whether your existing app is compatible with visionOS https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
 
@@ -351,6 +361,61 @@ AR Design / UI UX
 https://developer.apple.com/design/human-interface-guidelines/augmented-reality
 
 
+More Apple VisionOS Documentation:
+https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings-in-an-immersive-experience
+https://developer.apple.com/documentation/visionos/tracking-points-in-world-space
+
+
+-------------- 
+
+## **WWDC 2023 VisionOS Videos**
+
+Meet ARKit for spatial computing
+- https://developer.apple.com/videos/play/wwdc2023/10082/
+
+Evolve your ARKit app for spatial experiences
+- https://developer.apple.com/videos/play/wwdc2023/10091/
+
+Get started with building apps for spatial computing
+- https://developer.apple.com/videos/play/wwdc2023/10260/
+
+Optimize app power and performance for spatial computing
+- https://developer.apple.com/videos/play/wwdc2023/10100/
+
+Meet UIKit for spatial computing
+- https://developer.apple.com/videos/play/wwdc2023/111215/
+
+Meet Core Location for spatial computing
+- https://developer.apple.com/videos/play/wwdc2023/10146/
+
+Elevate your windowed app for spatial computing 
+- https://developer.apple.com/videos/play/wwdc2023/10110/
+
+Enhance your iPad and iPhone apps for the Shared Space
+- https://developer.apple.com/videos/play/wwdc2023/10094/
+
+Create a great spatial playback experience
+- https://developer.apple.com/videos/play/wwdc2023/10070/
+
+Build spatial SharePlay experiences
+- https://developer.apple.com/videos/play/wwdc2023/10087/
+
+Deliver video content for spatial experiences
+- https://developer.apple.com/videos/play/wwdc2023/10071/
+
+Explore rendering for spatial computing
+- https://developer.apple.com/videos/play/wwdc2023/10095/
+
+Building Immersive Apps
+
+Develop your first immersive app
+- https://developer.apple.com/videos/play/wwdc2023/10203/
+
+Bring your Unity VR app to a fully immersive space
+- https://developer.apple.com/videos/play/wwdc2023/10093/
+
+Create immersive Unity apps
+- https://developer.apple.com/videos/play/wwdc2023/10088/
 
 
 
