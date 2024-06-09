@@ -368,11 +368,13 @@ Apple Sample Projects WWDC (ARKit, RealityKit) 2021 - 2023
 - https://developer.apple.com/sample-code/wwdc/2023/
 
 
-## **Apple visionOS Sample Projects 2024**
+## **Apple visionOS Sample Projects 2023-24**
 - https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos
-- https://developer.apple.com/documentation/visionos/happybeam
 - https://developer.apple.com/documentation/realitykit/simulating-particles-in-your-visionos-app
 - https://developer.apple.com/documentation/realitykit/simulating-physics-with-collisions-in-your-visionos-app
+- https://developer.apple.com/documentation/visionos/happybeam
+- https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings-in-an-immersive-experience
+- https://developer.apple.com/documentation/visionos/placing-content-on-detected-planes
 
 
 Other Sample Resources
