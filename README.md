@@ -17,6 +17,16 @@ When building your app, start with a window and add elements as appropriate to h
 
 RealityKit plays an important role in visionOS apps, and you use it to manage the creation and animation of 3D objects in your apps. Create RealityKit content programmatically, or use Reality Composer Pro to build entire scenes that contain all the objects, animations, sounds, and visual effects you need. Include those scenes in your windows, volumes, or spaces using a RealityView.
 
+
+## **RealityView**
+
+- In RealityKit, objects are SwiftUI views with an Entity
+- RealityView allows you to place ‘reality content’ into SwiftUI view hierarchy
+    - 2 closures: Make, and update 
+        - Make - loads the entity: 
+            - If let scene = try? await Entity(named: “Scene”, in: …) { content.add(scene) }
+        - Update - is not called every frame, only called when SwiftUI state changes
+
 ——————
 
 - App icons on visionOS are special - 3 images overlayed on top of each other, that respond dynamically when viewed (Front, Middle & Back layer)
@@ -83,16 +93,6 @@ if .userInterfaceIdiom == .reality {
 	gesture.numberOfTouchesRequired = 2 
 }
 ```
-
-
-## **RealityView**
-
-- In RealityKit, objects are SwiftUI views with an Entity
-- RealityView allows you to place ‘reality content’ into SwiftUI view hierarchy
-    - 2 closures: Make, and update 
-        - Make - loads the entity: 
-            - If let scene = try? await Entity(named: “Scene”, in: …) { content.add(scene) }
-        - Update - is not called every frame, only called when SwiftUI state changes
 
 
 
@@ -266,6 +266,8 @@ Custom Shader (Underwater Apple example project, Octopus.swift)
 ```
 
 
+-----------------------------------------------------------------
+
 
 ## **Useful Links / Documentation**
 
@@ -361,6 +363,7 @@ Create immersive Unity apps
 - https://developer.apple.com/videos/play/wwdc2023/10088/
 
 
+----------------------------------------------------------------------------------------------
 
 Apple Sample Projects WWDC (ARKit, RealityKit) 2021 - 2023
 - https://developer.apple.com/sample-code/wwdc/2021/
