@@ -56,7 +56,6 @@ struct CustomView: View {
 
 Model3d .overlay { … } // overlay on SwiftUI 3d objects
 Model3d .rotation3dEffect( Rotation3D(angle: …., axis: …)) // apply rotation
-WindowGroup { … } // SwiftUI window
 
 ```
 
@@ -69,12 +68,14 @@ WindowGroup { … } // SwiftUI window
 
 ```
 RealityView {
-	// ….
-}.gesture(SpacialTapGesture()
-	.targetedToEntity( …. )
-	.onEnded { value in 
-	
-	})
+    // ….
+}
+.gesture(SpatialTapGesture()
+.targetedToEntity( …. )
+.onEnded { value in
+        
+})
+
 ```
 
 ```
@@ -93,23 +94,9 @@ if .userInterfaceIdiom == .reality {
             - If let scene = try? await Entity(named: “Scene”, in: …) { content.add(scene) }
         - Update - is not called every frame, only called when SwiftUI state changes
 
-```
-struct Earth: View { 
-	@State private var thisEntity: EarthEntity?
-
-	var body: some View {
-		RealityView { content in
-			// …
-			content.add( … )
-			self.thisEntity = ( … )
-		}
-	}
-}
-```
 
 
-
-------------------------
+----------------------------------------------------------------------------------------------
 
 
 ## **Design / UX**
@@ -209,7 +196,11 @@ Sharing textures between entities by using texture atlases, which are textures t
 
 
 
-Useful visionOS Snippets
+----------------------------------------------------------------------------------------------
+
+
+
+## **Useful visionOS Snippets**
 
 
 Load and return a a specific entity from RealityComposerPro scene
