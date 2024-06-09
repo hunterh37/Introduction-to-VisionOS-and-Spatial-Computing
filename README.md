@@ -1,7 +1,7 @@
-# Introduction to VisionOS and Spatial Computing
+# Introduction to visionOS (1.0) and Spatial Computing
 
 
-# Getting Started With VisionOS
+# Getting Started With visionOS
 
 When building your app, start with a window and add elements as appropriate to help immerse people in your content. Add a volume to showcase 3D content, or increase the level of immersion using a Full Space. The mixed style configures the space to display passthrough, but you can apply the progressive or full style to increase immersion and minimize distractions.
 
@@ -19,9 +19,9 @@ RealityKit plays an important role in visionOS apps, and you use it to manage th
 
 ——————
 
-- App icons on VisionOS are special - 3 images overlayed on top of each other, that respond dynamically when viewed (Front, Middle & Back layer)
+- App icons on visionOS are special - 3 images overlayed on top of each other, that respond dynamically when viewed (Front, Middle & Back layer)
 
-- Not all APIs that are available on iPadOS / iOS / MacOS are available on VisionOS.  
+- Not all APIs that are available on iPadOS / iOS / MacOS are available on visionOS.  
     - APIs that were deprecated prior to iOS 14
     - API’s that do not work well on visionOS: UIDeviceOrientation, UIScreen, UITabBar, & more..
 
@@ -31,7 +31,7 @@ RealityKit plays an important role in visionOS apps, and you use it to manage th
 
 
 
-## **VisionOS Workflow**
+## **visionOS Workflow**
 - Use SwiftUI and UIKit for building UI
 - RealityKit for presenting 3d content, animations, and VFX
 - ARKit to understand the space around the user
@@ -42,7 +42,7 @@ RealityKit plays an important role in visionOS apps, and you use it to manage th
 - Only one space can be open at a time
 
 ```
-// boilerplate VisionOS Application in SwiftUI
+// boilerplate visionOS Application in SwiftUI
 @main
 struct WorldApp: App {
 	var body: some Scene {
@@ -148,22 +148,22 @@ struct Earth: View {
 
 ## **Design / UX**
 
-The VisionOS user experience is basically an intuitive blend of iPadOS and VR.  Most default system UI controls and APIs are available on VisionOS, along with many new features.  Apple has created an all new immersive way to interact and see UI in software applications.
+The visionOS user experience is basically an intuitive blend of iPadOS and VR.  Most default system UI controls and APIs are available on visionOS, along with many new features.  Apple has created an all new immersive way to interact and see UI in software applications.
 
-- VisionOS is missing several standard APIs found in iOS & iPad, but most apps are intended to work by default.  Apps will be presented on a 2d screen (Volume).
-- System color shade slightly vary across platforms (iOS, VisionOS, WatchOS).  
+- visionOS is missing several standard APIs found in iOS & iPad, but most apps are intended to work by default.  Apps will be presented on a 2d screen (Volume).
+- System color shade slightly vary across platforms (iOS, visionOS, WatchOS).  
 - Make use of system colors on labels for improved readability. (UIColor.label, UIColor.secondaryLabel)
 - .borderStyle = .roundedRect for recessed background 
 - Use Materials in UI. Materials adjust to blend into surroundings, materials adjust contrast and color balance based on light conditions and colors behind them
-- There is no distinction between dark / light mode on VisionOS.  All builtin controls use materials by default, they adjust to surroundings 
+- There is no distinction between dark / light mode on visionOS.  All builtin controls use materials by default, they adjust to surroundings 
 
 
 
 
 ## **Eye Tracking / Hover**
-- VisionOS has eye tracking; (we do not receive exact eye position)
+- visionOS has eye tracking; (we do not receive exact eye position)
 - It is important UX to indicate when user is looking at specific UI elements
-- Builtin VisionOS UI controls will have hover indicators
+- Builtin visionOS UI controls will have hover indicators
 - New UIView property: UIHoverStyle: can be highlight or lift; or set to nil
     - self.hoverStyle = …. 
 
@@ -185,7 +185,7 @@ if .userInterfaceIdiom == .reality {
 
 ## **Area Mapping**
 
-VisionOS Builds a 3d model of the user surroundings to enable realistic lighting, shadows, and spatial audio.  Apps get access to this data without needing access to user cameras, to ensure user privacy 
+visionOS Builds a 3d model of the user surroundings to enable realistic lighting, shadows, and spatial audio.  Apps get access to this data without needing access to user cameras, to ensure user privacy 
 
 
 
@@ -250,7 +250,7 @@ Sharing textures between entities by using texture atlases, which are textures t
 
 
 
-Useful VisionOS Snippets
+Useful visionOS Snippets
 
 
 Load and return a a specific entity from RealityComposerPro scene
@@ -319,18 +319,8 @@ Custom Shader (Underwater Apple example project, Octopus.swift)
 
 ## **Useful Links / Documentation**
 
-
-Apple Sample Projects WWDC 2021 - 2023
-https://developer.apple.com/sample-code/wwdc/2021/
-https://developer.apple.com/sample-code/wwdc/2022/
-https://developer.apple.com/sample-code/wwdc/2023/
-
-VisionOS Sample Projects 2024
-https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos
-https://developer.apple.com/documentation/visionos/happybeam
-
-
-Checking whether your existing app is compatible with visionOS https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
+Checking whether your existing app is compatible with visionOS
+https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
 
 
 Bringing your ARKit app to visionOS
@@ -361,14 +351,14 @@ AR Design / UI UX
 https://developer.apple.com/design/human-interface-guidelines/augmented-reality
 
 
-More Apple VisionOS Documentation:
+More Apple visionOS Documentation:
 https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings-in-an-immersive-experience
 https://developer.apple.com/documentation/visionos/tracking-points-in-world-space
 
 
 -------------- 
 
-## **WWDC 2023 VisionOS Videos**
+## **WWDC 2023 visionOS Videos**
 
 Meet ARKit for spatial computing
 - https://developer.apple.com/videos/play/wwdc2023/10082/
@@ -416,6 +406,22 @@ Bring your Unity VR app to a fully immersive space
 
 Create immersive Unity apps
 - https://developer.apple.com/videos/play/wwdc2023/10088/
+
+
+
+Apple Sample Projects WWDC (ARKit, RealityKit) 2021 - 2023
+https://developer.apple.com/sample-code/wwdc/2021/
+https://developer.apple.com/sample-code/wwdc/2022/
+https://developer.apple.com/sample-code/wwdc/2023/
+
+
+## **Apple visionOS Sample Projects 2024**
+https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos
+https://developer.apple.com/documentation/visionos/happybeam
+https://developer.apple.com/documentation/realitykit/simulating-particles-in-your-visionos-app
+https://developer.apple.com/documentation/realitykit/simulating-physics-with-collisions-in-your-visionos-app
+
+
 
 
 
