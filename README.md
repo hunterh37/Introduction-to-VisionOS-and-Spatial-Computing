@@ -41,19 +41,6 @@ RealityKit plays an important role in visionOS apps, and you use it to manage th
 - App can contain single or multiple Spaces
 - Only one space can be open at a time
 
-```
-// boilerplate visionOS Application in SwiftUI
-@main
-struct WorldApp: App {
-	var body: some Scene {
-		ImmersiveSpace  {
-			CustomView()
-		}
-	}
-}
-```
-
-
 
 ## **Model3D**
 
@@ -61,48 +48,17 @@ struct WorldApp: App {
 
 ```
 struct CustomView: View {
-	var body: some view {
-		Model3D(named: “FileName”) { phase in   //file should be in proj
-		
-		}
-	}
+    var body: some view {
+        Model3D(named: “FileName”) { phase in   //file should be in proj
+        }
+    }
 }
-```
-
 
 Model3d .overlay { … } // overlay on SwiftUI 3d objects
 Model3d .rotation3dEffect( Rotation3D(angle: …., axis: …)) // apply rotation
 WindowGroup { … } // SwiftUI window
 
-
-
-
-## **Model 3d vs RealityView**
-
-- RealityView uses ECS (lighting, orbit paths)
-
-
-
-## **RealityView Attachments**
-
-- Attach SwiftUI views to an RealityKit Entity 
-
 ```
-var body: some View {
-	RealityView { content, attachments in 
-		// Create world content
-	
-		// ….
-	
-	} update: { content, attachments in
-		
-		// …
-	} attachments: {
-		// Add attachments here
-	}
-}
-```
-
 
 
 ## **Gestures**
@@ -119,6 +75,12 @@ RealityView {
 	.onEnded { value in 
 	
 	})
+```
+
+```
+if .userInterfaceIdiom == .reality {
+	gesture.numberOfTouchesRequired = 2 
+}
 ```
 
 
@@ -144,6 +106,10 @@ struct Earth: View {
 	}
 }
 ```
+
+
+
+------------------------
 
 
 ## **Design / UX**
@@ -173,13 +139,6 @@ The visionOS user experience is basically an intuitive blend of iPadOS and VR.  
 - Look and pinch = tap 
 - Pinch and move = pan 
 - When close enough to screen, reach and touch UI elements 
-
-
-```
-if .userInterfaceIdiom == .reality {
-	gesture.numberOfTouchesRequired = 2 
-}
-```
 
 
 
@@ -319,41 +278,44 @@ Custom Shader (Underwater Apple example project, Octopus.swift)
 
 ## **Useful Links / Documentation**
 
+GeometryReader3d
+- https://developer.apple.com/documentation/swiftui/geometryreader3d
+
 Checking whether your existing app is compatible with visionOS
-https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
+- https://developer.apple.com/documentation/visionos/checking-whether-your-app-is-compatible-with-visionos
 
 
 Bringing your ARKit app to visionOS
-https://developer.apple.com/documentation/visionos/bringing-your-arkit-app-to-visionos
+- https://developer.apple.com/documentation/visionos/bringing-your-arkit-app-to-visionos
 
 
 Explaining ECS / Entity Component System
-https://medium.com/macoclock/realitykit-911-entity-component-system-ecs-bfe0520e0e8e
+- https://medium.com/macoclock/realitykit-911-entity-component-system-ecs-bfe0520e0e8e
 
 Implementing ECS in RealityKit
-https://developer.apple.com/documentation/realitykit/implementing-systems-for-entities-in-a-scene
+- https://developer.apple.com/documentation/realitykit/implementing-systems-for-entities-in-a-scene
 
 
 Augmented Reality - Apple webpage
-https://developer.apple.com/augmented-reality/
+- https://developer.apple.com/augmented-reality/
 
 
 Understanding RealityKit’s modular architecture
-https://developer.apple.com/documentation/visionos/understanding-the-realitykit-modular-architecture
+- https://developer.apple.com/documentation/visionos/understanding-the-realitykit-modular-architecture
 
 
 ARKit Scene Reconstruction / Scene Collision
-https://developer.apple.com/documentation/visionos/incorporating-surroundings-in-an-immersive-experience
+- https://developer.apple.com/documentation/visionos/incorporating-surroundings-in-an-immersive-experience
 
 
 AR Design / UI UX 
 
-https://developer.apple.com/design/human-interface-guidelines/augmented-reality
+- https://developer.apple.com/design/human-interface-guidelines/augmented-reality
 
 
 More Apple visionOS Documentation:
-https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings-in-an-immersive-experience
-https://developer.apple.com/documentation/visionos/tracking-points-in-world-space
+- https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings-in-an-immersive-experience
+- https://developer.apple.com/documentation/visionos/tracking-points-in-world-space
 
 
 -------------- 
@@ -410,16 +372,23 @@ Create immersive Unity apps
 
 
 Apple Sample Projects WWDC (ARKit, RealityKit) 2021 - 2023
-https://developer.apple.com/sample-code/wwdc/2021/
-https://developer.apple.com/sample-code/wwdc/2022/
-https://developer.apple.com/sample-code/wwdc/2023/
+- https://developer.apple.com/sample-code/wwdc/2021/
+- https://developer.apple.com/sample-code/wwdc/2022/
+- https://developer.apple.com/sample-code/wwdc/2023/
 
 
 ## **Apple visionOS Sample Projects 2024**
-https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos
-https://developer.apple.com/documentation/visionos/happybeam
-https://developer.apple.com/documentation/realitykit/simulating-particles-in-your-visionos-app
-https://developer.apple.com/documentation/realitykit/simulating-physics-with-collisions-in-your-visionos-app
+- https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos
+- https://developer.apple.com/documentation/visionos/happybeam
+- https://developer.apple.com/documentation/realitykit/simulating-particles-in-your-visionos-app
+- https://developer.apple.com/documentation/realitykit/simulating-physics-with-collisions-in-your-visionos-app
+
+
+Other Sample Resources
+- https://github.com/satoshi0212/visionOS_30Days
+- https://github.com/hunterh37/VisionOS_AnimatedModelEntityDemo
+- https://github.com/hunterh37/VisionOS_BouncyBalls
+- https://github.com/hunterh37/VisionOS_SceneReconstructionDemo
 
 
 
