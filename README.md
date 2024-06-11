@@ -265,6 +265,47 @@ Custom Shader (Underwater Apple example project, Octopus.swift)
             }
 ```
 
+```
+// Generate a mesh for the plane (for occlusion).
+var meshResource: MeshResource? = nil
+do {
+    let contents = MeshResource.Contents(planeGeometry: anchor.geometry)
+    meshResource = try MeshResource.generate(from: contents)
+} catch {
+    print("Failed to create a mesh resource for a plane anchor: \(error).")
+    return
+}
+
+if let meshResource {
+    // Make this plane occlude virtual objects behind it.
+    entity.components.set(ModelComponent(mesh: meshResource, materials: [OcclusionMaterial()]))
+}
+
+// Generate a collision shape for the plane (for object placement and physics).
+var shape: ShapeResource? = nil
+do {
+    let vertices = anchor.geometry.meshVertices.asSIMD3(ofType: Float.self)
+    shape = try await ShapeResource.generateStaticMesh(positions: vertices,
+                                                       faceIndices: anchor.geometry.meshFaces.asUInt16Array())
+} catch {
+    print("Failed to create a static mesh for a plane anchor: \(error).")
+    return
+}
+
+if let shape {
+    var collisionGroup = PlaneAnchor.verticalCollisionGroup
+    if anchor.alignment == .horizontal {
+        collisionGroup = PlaneAnchor.horizontalCollisionGroup
+    }
+    
+    entity.components.set(CollisionComponent(shapes: [shape], isStatic: true,
+                                             filter: CollisionFilter(group: collisionGroup, mask: .all)))
+    // The plane needs to be a static physics body so that objects come to rest on the plane.
+    let physicsMaterial = PhysicsMaterialResource.generate()
+    let physics = PhysicsBodyComponent(shapes: [shape], mass: 0.0, material: physicsMaterial, mode: .static)
+    entity.components.set(physics)
+}
+```
 
 -----------------------------------------------------------------
 
